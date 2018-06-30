@@ -1,2 +1,9 @@
 server:
   port: 8011
+datasource:
+  local:
+    url: jdbc:mysql:///lottery_activity
+    user-name: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    poolSize: 20

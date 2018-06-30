@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.ssm.annotations.mapper.UserInfoMapper">
+
+  <update id="updateUserInfo" parameterType="com.learn.ssm.annotations.vo.UserInfoVo">
+
+    update lottery_activity.single_water_user set nick_name = #{nickName} , user_score = #{userScore} where user_id = #{userId}
+
+  </update>
+
+
+  <insert id="insertUserInfo" parameterType="com.learn.ssm.annotations.vo.UserInfoVo">
+    insert into lottery_activity.single_water_user(user_id, nick_name, user_score) values (#{userId},#{nickName},#{userScore})
+  </insert>
+</mapper>
