@@ -30,14 +30,24 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Transactional(value = "localTransactionManager")
     public void updateUserInfo(UserInfoVo userInfoVo){
 
-          userInfoMapper.updateUserInfo(userInfoVo);
 
-          try{
-              userService.update(userInfoVo);
-          }catch (Exception e){
+        try {
 
-          }
+            userInfoMapper.updateUserInfo(userInfoVo);
 
+            userInfoVo.setUserScore(800.0);
+
+            userInfoMapper.updateUserInfo(userInfoVo);
+
+
+            userService.update(userInfoVo);
+//            userInfoMapper.insertUserInfo(userInfoVo);
+        } catch (Exception e){
+            log.info(e.getMessage());
+        }
+
+
+//        userInfoMapper.insertUserInfo(userInfoVo);
 //          userInfoMapper.insertUserInfo(userInfoVo);
     }
 

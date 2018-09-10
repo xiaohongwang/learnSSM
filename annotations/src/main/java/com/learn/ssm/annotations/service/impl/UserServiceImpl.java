@@ -11,16 +11,16 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 @Service
 public class UserServiceImpl implements UserService {
-//    @Resource
-//    private UserInfoService userInfoService;
+    @Resource
+    private UserInfoService userInfoService;
 
     @Resource
     private UserInfoMapper userInfoMapper;
 
     @Override
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional(value = "localTransactionManager")
     public void update(UserInfoVo userInfoVo) {
-//        userInfoService.updateUserInfo(userInfoVo);
         userInfoMapper.insertUserInfo(userInfoVo);
+
     }
 }
